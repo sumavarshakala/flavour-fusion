@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container ff-main">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body">
+                    <h1 class="h4 mb-2">Generated Recipe Blog</h1>
+                    <p class="text-muted mb-1">
+                        Topic: <strong>{{ topic }}</strong>
+                    </p>
+                    <p class="text-muted">
+                        Target word count: <strong>{{ word_count }}</strong>
+                    </p>
+
+                    <hr>
+
+                    <div class="recipe-content">
+                        {{ recipe_text | safe }}
+                    </div>
+
+                    <hr>
+
+                    <h2 class="h6 mt-3">👨‍💻 Programmer Joke</h2>
+                    <p>{{ joke }}</p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('home') }}" class="btn btn-outline-secondary">
+                ⬅ Back to Generator
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

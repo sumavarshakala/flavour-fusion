@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container ff-main">
+    <div class="row g-4 align-items-start">
+
+        <!-- LEFT: HERO ONLY -->
+        <div class="col-lg-6" id="ff-left-col">
+            <section class="ff-hero" id="ff-hero">
+                <div class="ff-hero-badge">
+                    🍽️ AI-POWERED • BLOGGER-FRIENDLY
+                </div>
+
+                <h1 class="ff-hero-title mt-3">
+                    Turn any idea into a<br>beautiful recipe blog.
+                </h1>
+
+                <p class="ff-hero-subtitle">
+                    Flavour Fusion uses Google’s Generative AI to craft rich, story-driven
+                    recipe posts tailored to your topic and word count — perfect for
+                    food bloggers, creators, and cookbook dreamers.
+                </p>
+
+                <div class="ff-hero-pill-row">
+                    <span class="ff-hero-pill">Vegan-friendly ideas</span>
+                    <span class="ff-hero-pill">Story + ingredients + steps</span>
+                    <span class="ff-hero-pill">Custom word count</span>
+                    <span class="ff-hero-pill">Programmer-approved jokes</span>
+                </div>
+            </section>
+        </div>
+
+        <!-- RIGHT: FORM (and later image) -->
+        <div class="col-lg-6" id="ff-right-col">
+            <div class="card ff-form-card" id="ff-form-card">
+                <div class="card-header">
+                    <h2 class="ff-form-title mb-1 text-center">
+                        Generate your next recipe post
+                    </h2>
+                    <p class="ff-form-subtitle text-center mb-0">
+                        Just describe your dish and choose the length.
+                    </p>
+                </div>
+                <div class="card-body">
+                    <form id="recipe-form">
+                        <div class="mb-3">
+                            <label for="topic" class="form-label">Recipe Topic</label>
+                            <input
+                                type="text"
+                                id="topic"
+                                name="topic"
+                                class="form-control"
+                                placeholder="e.g., Vegan Chocolate Cake"
+                                required
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="word_count" class="form-label">Target Word Count</label>
+                            <input
+                                type="number"
+                                id="word_count"
+                                name="word_count"
+                                class="form-control"
+                                min="300"
+                                max="3000"
+                                value="1200"
+                                required
+                            >
+                            <div class="form-text">
+                                Tip: 800–1500 words works great for most blog posts.
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="btn ff-generate-btn w-100 text-white"
+                                id="generate-btn">
+                            Generate Recipe ✨
+                        </button>
+
+                        <p id="joke-box" class="small text-muted mt-2 d-none"></p>
+                    </form>
+                </div>
+            </div>
+
+            <!-- we’ll use this for the image later; for now it can stay hidden -->
+            <div id="recipe-image-wrapper" class="d-none text-center mt-3">
+                <img id="recipe-image"
+                     class="img-fluid rounded shadow-lg"
+                     style="max-height: 350px; object-fit: cover;">
+            </div>
+        </div>
+
+        <!-- FULL-WIDTH BLOG BELOW BOTH -->
+        <div class="col-12 mt-3">
+            <div id="ff-recipe-panel" class="card ff-recipe-panel d-none">
+                <div class="card-body">
+                    <h2 class="h5 mb-3">Your AI-Generated Recipe</h2>
+                    <div id="recipe-output" class="recipe-content mt-3"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}

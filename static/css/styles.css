@@ -1,0 +1,150 @@
+:root {
+    --ff-deep-green: #21513b;
+    --ff-olive: #557a3b;
+    --ff-warm-orange: #f6a432;
+    --ff-soft-orange-bg: #fff4e1;
+    --ff-dark-orange: #e87a24;
+    --ff-nav-brown: #89390f;
+}
+
+.ff-body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, #ffffff, var(--ff-soft-orange-bg));
+    font-family: system-ui, sans-serif;
+}
+
+/* NAVBAR */
+.ff-navbar {
+    background-color: var(--ff-nav-brown);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.ff-brand-text {
+    font-family: "Playfair Display", serif;
+    font-size: 3.2rem;
+    color: #f9f0e0;
+}
+
+.ff-brand-subtitle {
+    font-family: "Playfair Display", serif;
+    font-size: 1.3rem;
+    color: #f9f0e0;
+}
+
+/* Big Logos */
+.ff-navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ff-nav-logo {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ff-logo-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 999px;
+    background-color: #f9f0e0;
+    overflow: hidden;
+    border: 3px solid #f3d28c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ff-logo-img {
+    width: 120%;
+    height: 120%;
+    object-fit: contain;
+}
+
+
+.ff-brand-center {
+    flex: 1;
+    text-align: center;
+}
+
+/* HERO */
+.ff-hero {
+    background: linear-gradient(135deg, #fbd08a, #f89c3b);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 18px 40px rgba(247,143,27,0.4);
+}
+
+.ff-hero-hidden {
+    opacity: 0;
+    transform: translateY(-10px);
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        max-height 0.3s ease,
+        margin 0.3s ease,
+        padding 0.3s ease;
+}
+
+
+/* FORM ON LEFT */
+.ff-form-on-left {
+    margin-top: 1rem;
+    transition: 0.4s ease;
+}
+
+/* RECIPE IMAGE */
+#recipe-image-wrapper {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* RECIPE PANEL */
+.ff-recipe-panel {
+    transition: 0.4s ease;
+}
+
+.recipe-content h2,
+.recipe-content h3 {
+    color: var(--ff-deep-green);
+}
+
+/* Buttons */
+.ff-generate-btn {
+    background: linear-gradient(135deg, var(--ff-warm-orange), var(--ff-dark-orange));
+    border: none;
+    font-weight: 600;
+}
+/* Top row: form + image same height */
+.ff-top-row {
+    align-items: stretch;
+}
+
+.ff-top-row .card {
+    height: 100%;
+}
+
+/* Recipe image styling */
+.ff-recipe-img {
+    width: 100%;
+    border-radius: 1rem;
+}
+
+/* On small screens: stack form and image */
+@media (max-width: 991px) {
+    .ff-top-row {
+        flex-direction: column;
+    }
+}
